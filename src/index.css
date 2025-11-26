@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?');
+
+@tailwind utilities;
+
+
+.prussColor {
+  color: #00305A;
+}
+
+
+.prussBack{
+
+  background-color: #ebee16;
+}
+
+.turqColor{
+  color: #63ECBB;
+}
+.turqBack{
+  background-color: #ebee16;
+}
+
+.montserrat{
+  font-family: 'Montserrat' , sans-serif;
+  
+}
+.inter{
+  font-family: 'Inter' , sans-serif;
+}
+
+.raleway {
+  font-family: 'Raleway',sans-serif;
+}
+body {
+  padding: 0;
+}
+
+.colorWhite{
+  color : white
+}
+.backwhite{
+  background-color: #fff;
+}
+
+.backBlack {
+  background-color: #111111;
+}
+.backYellow{
+  background-color: #fdf125;
+}
