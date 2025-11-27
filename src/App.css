@@ -26,27 +26,6 @@
     
 }
 
-.fade-up {
-  opacity: 0;
-  transform: translateX(-400px);
-
-  
-}
-.fade-up.visible{
-    animation: aneem 1s ease-out forwards;
-}
-
-@keyframes aneem {
-  from {
-    opacity: 0;
-    transform: translateX(-400px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 .fade-down{
     opacity: 0;

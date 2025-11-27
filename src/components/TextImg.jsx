@@ -1,5 +1,5 @@
 // TextImg.tsx
-import Main_a_main from "../assets/Main_a_main.svg";
+import Main_a_main from "/assets/hero/subHero.jpg";
 import { CallToAction } from './CallToAction';
 
 export default function TextImg ({img=Main_a_main ,variant={},title,paragraphe}){
@@ -11,7 +11,7 @@ export default function TextImg ({img=Main_a_main ,variant={},title,paragraphe})
             <CallToAction color={ "bg-[#E4BB39] text-black " } />
         </div>
         <div className='flex justify-center  flex-1'>
-          <img src={img} alt="Client a  recu sa voiture" className='w-[90%] xl:w-[500px] max-w-[800px] ' />
+          <img src={img} alt="Client a  recu sa voiture" className='w-[90%] xl:w-[500px] max-w-[800px] rounded-xl' />
         </div>
     </section>
   )

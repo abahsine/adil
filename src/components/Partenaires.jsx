@@ -19,7 +19,7 @@ const images = import.meta.glob('/src/assets/logos/*.png', { eager: true });
 const imageList = () => {
   const listes = []
      Object.values(images).map((img, i) => (
-        listes.push(<img key={i} src={img.default} className='w-[30%] lg:w-[50%]' alt={`img-${i}`} />)  
+        listes.push(<img key={i} src={img.default} className='w-[40%] lg:w-[50%]' alt={`img-${i}`} />)  
       ))
   return listes
 

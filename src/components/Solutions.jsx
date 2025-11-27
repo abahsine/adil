@@ -1,8 +1,8 @@
 // Solutions.tsx
 import  Pancarte  from './Pancarte';
-import Convoyeur from '../assets/conduit.svg';
-import MiseEnMain from '../assets/MiseEnMain.svg';
-import Lavage from '../assets/watching.svg';
+import Convoyeur from '/assets/hero/text-image.jpeg';
+import MiseEnMain from '/assets/hero/mise_en_main.jpg';
+import Lavage from '/assets/hero/watchingCar2.jpeg';
 
 export default function Solutions ({style={}}){
   const Pancartes = [

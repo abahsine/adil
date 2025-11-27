@@ -1,0 +1,47 @@
+
+@media (min-width:700px){
+
+    .fade-up {
+  opacity: 0;
+  transform: translateX(-400px);
+}
+.fade-up.visible{
+    animation: aneem 1s ease-out forwards;
+
+}
+@keyframes aneem {
+  from {
+    opacity: 0;
+    transform: translateX(-400px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+}
+
+@media (max-width : 700px) {
+    .fade-up {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.fade-up.visible{
+    animation: aneem 1s ease-out forwards;
+
+}
+@keyframes aneem {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+    
+}
+

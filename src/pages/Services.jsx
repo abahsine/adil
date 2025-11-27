@@ -1,6 +1,6 @@
-import About2 from "../assets/about/mise_en_main.svg";
-import About1 from "../assets/about/clée_voiture.svg";
-import About3 from "../assets/watching.png";
+import About2 from "/assets/hero/mise_en_main.jpg";
+import About1 from "/assets/hero/mise_en_main.jpg";
+import About3 from "/assets/hero/watchingCar1.jpeg";
 
 import TitleParagraphe from "../components/componentServices/TitleParagraphe";
 import LateraleImg from "../components/componentServices/LateraleImg";

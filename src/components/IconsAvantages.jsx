@@ -9,19 +9,19 @@ function IconsAvantages(){
   const listeIcons = [
     {
       title : "Sécurité garantie",
-    icon  : <MdWorkspacePremium style={{fontSize : "3rem",color : "#00305A"}}/>
+    icon  : <MdWorkspacePremium style={{fontSize : "2.6rem",color : "#00305A"}}/>
     },
        {
       title : "Service rapide",
-    icon  : <IoIosSpeedometer style={{fontSize : "3rem",color : "#00305A"}}/>
+    icon  : <IoIosSpeedometer style={{fontSize : "2.6rem",color : "#00305A"}}/>
     },
        {
       title : "Suivi en temps réel",
-    icon  : <FaLocationDot style={{fontSize : "3rem",color : "#00305A"}}/>
+    icon  : <FaLocationDot style={{fontSize : "2.6rem",color : "#00305A"}}/>
     },
        {
       title : "Tarif economique",
-    icon  : <IoLogoEuro style={{fontSize : "3rem",color : "#00305A"}}/>
+    icon  : <IoLogoEuro style={{fontSize : "2.6rem",color : "#00305A"}}/>
     },
 
   ]

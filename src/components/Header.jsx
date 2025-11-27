@@ -8,6 +8,23 @@ import Logo from '/logo.png'
 function Header(){
 
   const [isOpen, setOpen] = useState(false)
+  const navMenu = [
+    {label : "Accueil",
+      lien : "/",
+    },
+     {label : "Services",
+      lien : "services",
+    },
+     {label : "A propos" ,
+      lien : "about",
+    },
+     {label : "Contact",
+      lien : "contact",
+    },
+     {label : "Nous contacter",
+      lien : "contact",
+    },
+  ]
  
   return (<header className='py-3 px-2 flex sm:py-0 sm:px-10   text-white text-lg backBlack items-center montserrat lg:justify-between justify-between relative'>
   
@@ -36,30 +53,9 @@ function Header(){
       
     `}
   >
-    <li><NavLink to="/" 
-    onClick={()=>{setOpen(!isOpen)}}
-    className={({isActive})=>{
-     return  isActive? "text-amber-300" : ""
-    }}
-    >Accueil</NavLink></li>
-    <li><NavLink 
-     onClick={()=>{setOpen(!isOpen)}}
-    className={({isActive})=>{
-     return  isActive? "text-amber-300" : ""
-    }}  to="services">Services</NavLink ></li>
-    <li className='hover:text-amber-300 hover:border-b-2 hover:border-amber-600 hover:pb-3'><NavLink 
-     onClick={()=>{setOpen(!isOpen)}}
-    className={({isActive})=>{
-     return  isActive? "text-amber-300" : ""
-    }}  to="about">A propos</NavLink ></li>
-    <li><NavLink  
-     onClick={()=>{setOpen(!isOpen)}}
-    to="contact">Contact</NavLink ></li>
-    <li><NavLink 
-     onClick={()=>{setOpen(!isOpen)}}
-    className={({isActive})=>{
-     return  isActive? "text-amber-300" : ""
-    }}  to="contact">Nous Contacter</NavLink ></li>
+   {navMenu.map((element,index)=>{
+      return(<Navlink lien={element.lien} label={element.label} key={index}/>)
+   })}
     <li className="my-3 md:my-0"  onClick={()=>{setOpen(!isOpen)}}><CallToAction color={"my-3 md:my-0 "} style={{color : "black"}} /></li>
   </ul>
 
@@ -67,10 +63,16 @@ function Header(){
 )
 }
 
-function Navlink({}){
-  return(
-    <></>
-  )
+function Navlink({lien , label}){
+  return(<li className='hover:border-b-2 hover:border-amber-300'>
+    <NavLink 
+     onClick={()=>{setOpen(!isOpen)}}
+    className={({isActive})=>{
+     return  isActive? "text-amber-300" : ""
+    }}  to={lien}>{label}</NavLink >
+  
+  </li>)
+
 }
 
 
