@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 
 import vehiculesTypes from "../components/contact/vehiculeTypes";
@@ -6,9 +6,10 @@ import Villes from "../components/contact/Villes";
 import validateFormStep from "../components/contact/ValidateDataForm";
 import Form1 from "../components/contact/Form1";
 import Form2 from "../components/contact/Form2";
+import sendEmail from "../components/utils/EmailJs";
 
 export default function Contact() {
-  const [data, setData] = useState({
+  const formInit = {
     depart: "",
     arrive: "",
     typeCar: "",
@@ -17,7 +18,8 @@ export default function Contact() {
     mail: "",
     telephone: "",
     restitutionVille :""
-  });
+  }
+  const [data, setData] = useState({...formInit});
 
   const [step,setStep] = useState(1)
   const [errors,setErrors] = useState({})
@@ -57,6 +59,13 @@ export default function Contact() {
       });
     }
   };
+
+useEffect(()=>{
+  if(step===3){
+    sendEmail(data)
+    setData({...formInit})
+  }
+},[step])
 
   return (
     <div className="h-[600px] flex flex-col justify-center items-center align  bg-[#fff]">
