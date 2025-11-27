@@ -6,7 +6,8 @@ import { IoMdMail } from "react-icons/io";
 export default function Form2({ handleClick, data, handleChange,handlePrevious,errors }) {
   return (
     <form
- className="flex flex-col w-[90%] shadow-2xl shadow-black max-w-[400px] max-h-[500px] gap-3 bg-white p-5 rounded-2xl min-h-[450px]"
+      className="flex flex-col w-[90%] shadow-2xl shadow-black max-w-[380px] h-[90%] max-h-[600px] gap-3 bg-white p-5 rounded-2xl min-h-[450px]"
+
       onSubmit={handleClick}
     >
         <button className="text-[#64646498] text-2xl  self-start" onClick={handlePrevious}><FaArrowLeft/></button>

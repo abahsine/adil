@@ -25,7 +25,7 @@ export default function InputSearch({
 
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="block mb-1 text-md font-medium text-gray-700">{label}</label>
 
      
         <CreatableSelect
