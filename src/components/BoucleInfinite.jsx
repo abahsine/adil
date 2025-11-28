@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css"
+import "./css/components.css"
 
 function BoucleInfinis ({liste }){
 
@@ -7,9 +7,9 @@ function BoucleInfinis ({liste }){
     return (
 
         <div className="flex justify-center ">
-  <div className="carousel w-[100%]  flex overflow-x-auto  " >
+  <div className=" w-[100%]  flex overflow-x-auto scrollbar-hide  carousel" >
      
-        <div className="group flex items-center justify-center  gap-4 ">
+        <div className="group flex items-center justify-center gap-4 ">
 
                {liste.map((element, index)=>{
            return( <div key={index} className="card  h-[300px] w-[500px] flex justify-center items-center flex-[0 0 5em]">{element}</div>)

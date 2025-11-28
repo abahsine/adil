@@ -52,7 +52,7 @@ export default function LateraleImg({ titre, paragraphe, blue = false, details,i
         <img
           src={img}
           alt="Client a  recu sa voiture"
-          className="w-[90%] xl:w-[90%] max-w-[800px]"
+          className="w-[90%] xl:w-[90%] max-w-[800px] max-h-[550px] rounded-2xl"
         />
       </div>
     </section>

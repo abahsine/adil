@@ -28,7 +28,7 @@ function Header(){
  
   return (<header className='py-3 px-2 flex sm:py-0 sm:px-10   text-white text-lg backBlack items-center montserrat lg:justify-between justify-between relative'>
   
- {<img src={Logo} className='h-[80px] flex py-2 md:pl-3  '></img>}
+ {<img src={Logo} className='lg:h-[80px] h-[60px] flex py-2 md:pl-3  '></img>}
 
   
   {window.innerWidth < 1024 && (
@@ -39,7 +39,7 @@ function Header(){
     className={`
 
       lg:flex-2 
-      flex lg:gap-6  gap-1
+      flex lg:gap-6  gap-3
       z-20
       lg:flex-row lg:static 
       ${isOpen ? "flex lg:flex" : "hidden lg:flex"}      
@@ -47,7 +47,7 @@ function Header(){
       absolute top-full right-0  w-2/3  max-w-[350px]   lg:max-w-[100%]
       bg-black/90 text-white p-4 mt-0       
       lg:bg-transparent lg:text-inherit lg:p-0 lg:mt-0
-      lg:whitespace-nowrap  lg:justify-center
+      lg:whitespace-nowrap  lg:justify-center 
      
      
       

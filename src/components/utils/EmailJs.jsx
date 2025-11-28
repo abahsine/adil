@@ -15,5 +15,4 @@ const sendEmail = (data) => {  // <-- plus de {data}
     alert("Erreur lors de l'envoi de l'email.");
   });
 };
-
 export default sendEmail;

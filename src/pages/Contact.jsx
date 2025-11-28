@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CreatableSelect from "react-select/creatable";
 
 import vehiculesTypes from "../components/contact/vehiculeTypes";
 import Villes from "../components/contact/Villes";
@@ -68,7 +67,7 @@ useEffect(()=>{
 },[step])
 
   return (
-    <div className="h-[600px] flex flex-col justify-center items-center align  bg-[#fff]">
+    <div className="h-[600px] flex flex-col justify-center bg-[url('/assets/about/heroAbout.jpeg')] items-center align  bg-[#fff]">
       {step==1 && (
         <Form1
           handleChange={handleChange}

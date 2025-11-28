@@ -5,7 +5,7 @@ import IconsAvantages from '../components/IconsAvantages';
 import TextImg from '../components/TextImg';
 import Steps from '../components/Steps';
 import Partenaires from '../components/Partenaires';
-
+import Scroller from './BoucleInfinis';
 
 
 function Accueil() {
@@ -17,7 +17,8 @@ function Accueil() {
     <TextImg/>
     <Steps/>
     <Solutions/>
-    <Partenaires/>
+    <Partenaires> <Scroller/> </Partenaires>
+    
 </>
   )
 }

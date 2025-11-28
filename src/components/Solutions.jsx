@@ -1,6 +1,6 @@
 // Solutions.tsx
 import  Pancarte  from './Pancarte';
-import Convoyeur from '/assets/hero/text-image.jpeg';
+import Convoyeur from '/assets/about/heroAbout.jpeg';
 import MiseEnMain from '/assets/hero/mise_en_main.jpg';
 import Lavage from '/assets/hero/watchingCar2.jpeg';
 
@@ -29,10 +29,11 @@ export default function Solutions ({style={}}){
   style={style} // style global si défini
 >
   <h1
-    className="lg:text-5xl lg:font-extrabold sm:text-4xl font-bold text-4xl w-[90%] max-w-[500px] mt-8 prussColor text-center"
+    className="lg:text-4xl lg:font-extrabold sm:text-3xl font-bold text-3xl leading-3 roboto w-[90%] max-w-[500px] mt-8 prussColor text-center"
     style={!style || Object.keys(style).length === 0 ? undefined : { color: "#fff" }}
   >
     Nos solutions
+    <span className='flex justify-center rounded-xl text-amber-300'>_____________</span>
   </h1>
 
   <div className="flex flex-col lg:flex-row my-10 lg:justify-around items-center gap-8">

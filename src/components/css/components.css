@@ -45,3 +45,34 @@
     
 }
 
+
+
+.carousel {
+    scrollbar-width: 0;
+  
+}
+.carousel{
+    overflow-x: hidden;
+}
+
+.carousel:hover::-webkit-scrollbar {
+    display: none;
+    color: aqua;
+}
+
+.group {
+    padding-right: 1em;
+    animation: spin 10s infinite linear;
+}
+
+.group:-webkit-scrollbar {
+  display: hidden;
+}
+@keyframes spin {
+    from {translate:0};
+    to{
+        translate: -100%;
+    }
+    
+}
+

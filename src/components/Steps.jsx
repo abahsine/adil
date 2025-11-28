@@ -23,9 +23,9 @@ function Steps(){
 ]
   
   return (<section className='bg-white py-5 flex flex-col items-center gap-2'>
-      <h4 className='text-center text-[#00305A] '>_____Rapide et simple_____ </h4>
-        <h3 className='lg:text-5xl lg:font-extrabold  sm:text-4xl font-bold text-4xl w-[90%] max-w-[500px]  text-[#00305A] text-center'>Comment ca marche ? </h3>
-<div className=' w-full lg:py-5 lg:px-7 lg:justify-around  flex flex-col lg:flex-row items-center'>
+      <h4 className='text-center roboto text-[#00305A] '>_____Rapide et simple_____ </h4>
+        <h3 className='lg:text-4xl roboto lg:font-bold  md:text-4xl font-semibold text-3xl w-[90%] max-w-[500px]  text-[#00305A] text-center'>Comment ca marche ? </h3>
+<div className=' w-full lg:py-5 lg:px-7 lg:justify-around md:gap-0 gap-6  border-black flex flex-col lg:flex-row items-center'>
 
 {etapes.map((e,index)=>{
   return(<Step number={e.number} title={e.title} content={e.content} key={index}  />)
