@@ -6,6 +6,8 @@ import validateFormStep from "../components/contact/ValidateDataForm";
 import Form1 from "../components/contact/Form1";
 import Form2 from "../components/contact/Form2";
 import sendEmail from "../components/utils/EmailJs";
+import ConfirmationMessage from "../components/contact/Confirmation";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
   const formInit = {
@@ -18,18 +20,24 @@ export default function Contact() {
     telephone: "",
     restitutionVille :""
   }
+  const navigate = useNavigate();
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [data, setData] = useState({...formInit});
 
   const [step,setStep] = useState(1)
   const [errors,setErrors] = useState({})
 
-
+  const handleShowConfirmation = ()=>{
+    setShowConfirmation(false)
+    navigate('/')
+  }
   const handleClick = (e) => {
     e.preventDefault();
     const validationData = validateFormStep(data,step)
     if(validationData!=="ok"){
       setErrors(validationData)
-      console.log(errors)
+   
     }else{
       setStep(step+1)
     }
@@ -41,8 +49,7 @@ export default function Contact() {
 
   
   const handleChange = (e, actionMeta) => {
-    console.log(data);
-    console.log(errors)
+   
     try {
       if (e.target.name == "restitution") {
         return setData({ ...data, restitution: !data.restitution });
@@ -59,12 +66,23 @@ export default function Contact() {
     }
   };
 
-useEffect(()=>{
-  if(step===3){
-    sendEmail(data)
-    setData({...formInit})
+useEffect(() => {
+  if (step === 3) {
+    const send = async () => {
+      try {
+        await sendEmail(data);   // attend que l'email soit envoyé
+        setData({ ...formInit }); 
+        setShowConfirmation(true); // affichage de ton message
+        
+      } catch (error) {
+        console.error("Erreur lors de l'envoi de l'email :", error);
+        alert("Erreur lors de l'envoi de l'email. Veuillez réessayer.");
+      }
+    };
+    send();
   }
-},[step])
+}, [step]);
+
 
   return (
     <div className="h-[600px] flex flex-col justify-center bg-[url('/assets/about/heroAbout.jpeg')] items-center align  bg-[#fff]">
@@ -88,8 +106,8 @@ useEffect(()=>{
         />
       )}
 
-      {step==3 && (
-        <h3>congratulation</h3>
+      {showConfirmation && (
+        <ConfirmationMessage onClose={handleShowConfirmation}/>
       )}
     </div>
   );

@@ -13,7 +13,7 @@ export default function Form2({ handleClick, data, handleChange,handlePrevious,e
         <button className="text-[#64646498] text-2xl  self-start" onClick={handlePrevious}><FaArrowLeft/></button>
       <Input
         label={"Nom :"}
-        placeholder="Entrez votre nom"
+        placeholder="Nom"
         name="name"
         value={data.name}
         onChange={handleChange}
@@ -22,7 +22,7 @@ export default function Form2({ handleClick, data, handleChange,handlePrevious,e
       >  <IoPerson className="text-[#1a222e] mx-1 text-2xl " /></Input>
       <Input
         label={"Adresse mail :"}
-        placeholder="Entrez votre adresse mail"
+        placeholder="Adresse mail"
         name="mail"
         value={data.mail}
         onChange={handleChange}
@@ -34,7 +34,7 @@ export default function Form2({ handleClick, data, handleChange,handlePrevious,e
       </Input>
       <Input
         label={"Téléphone (optionnel) : "}
-        placeholder="Entrez votre numéro de telephone"
+        placeholder="Numéro de telephone"
         name="telephone"
         value={data.telephone}
         onChange={handleChange}

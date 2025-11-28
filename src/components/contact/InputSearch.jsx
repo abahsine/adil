@@ -28,27 +28,39 @@ export default function InputSearch({
       <label htmlFor={name} className="block mb-1 text-md font-medium text-gray-700">{label}</label>
 
      
-        <CreatableSelect
-          isClearable
-          options={options}
-          placeholder={placeholder}
-          id={name}
-          name={name}
-          value={value}
-          formatCreateLabel={(inputValue) => inputValue}
-          onChange={(e, meta) => setData(e, meta)}
-          
-          components={{
-            Control: CustomControl
-          }}
-
-          styles={{
-            control: (base) => ({
-              ...base,
-              paddingLeft: '4px'
-            })
-          }}
-        />
+      <CreatableSelect
+  isClearable
+  options={options}
+  placeholder={placeholder}
+  id={name}
+  name={name}
+  value={value}
+  formatCreateLabel={(inputValue) => inputValue}
+  onChange={(e, meta) => setData(e, meta)}
+  components={{
+    Control: CustomControl
+  }}
+  styles={{
+    control: (base) => ({
+      ...base,
+      paddingLeft: '4px'
+    }),
+    option: (base, state) => ({
+      ...base,
+      color: 'black',             // texte en noir
+      backgroundColor: state.isFocused ? '#f0f0f0' : 'white', // fond clair quand focus
+      cursor: 'pointer'
+    }),
+    singleValue: (base) => ({
+      ...base,
+      color: 'black'             // texte sélectionné en noir
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: 'gray'
+    })
+  }}
+/>
 
 
       {error && <p className="text-red-500  font-light">{error}</p>}

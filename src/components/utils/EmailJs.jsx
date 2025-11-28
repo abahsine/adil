@@ -8,11 +8,10 @@ const sendEmail = (data) => {  // <-- plus de {data}
     "D1rSO1XNtilJuXbjv"
   )
   .then((result) => {
-    console.log(result.text);
-    alert("Email envoyé avec succès !");
+    return true
+    
   }, (error) => {
-    console.log(error.text);
-    alert("Erreur lors de l'envoi de l'email.");
+    return false
   });
 };
 export default sendEmail;
