@@ -1,6 +1,6 @@
 // Solutions.tsx
 import  Pancarte  from './Pancarte';
-import Convoyeur from '/assets/about/heroAbout.jpeg';
+import Convoyeur from '/assets/backgroundVideo/backHero3.jpg';
 import MiseEnMain from '/assets/hero/mise_en_main.jpg';
 import Lavage from '/assets/hero/watchingCar2.webp';
 

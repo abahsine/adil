@@ -10,21 +10,18 @@ function Hero (){
   return(<>
     <section className='h-[600px] flex flex-col text-white bg-black bg-center justify-center items-center relative bg-no-repeat' style={{backgroundSize : "100% 100%"}}>
      
-<video
+<img
   className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
-  src="/assets/backgroundVideo/background3.mp4"
-  autoPlay
-  muted
-  loop
-  playsInline
+  src="/assets/backgroundVideo/backHero.jpg"
+
 />
 
-  <Link to={"/contact"} className='w-full md:h-[50px]  py-0.5 bg-[#1686007a] absolute top-0 flex text-[white] z-3 md:font-bold font-medium justify-center items-center hover:text-black'>
-        <p className='text-center'>Profitez de 20% de réduction sur votre premier convoyage !</p>
+  <Link to={"/contact"} className='w-full md:h-[50px]  py-0.5 bg-amber-400 absolute top-0 flex text-[#00305a] z-3 md:font-bold font-medium justify-center items-center hover:text-white'>
+        <p className='text-center roboto'><span className='font-bold block'>Profitez de 20% de réduction sur</span> votre premier convoyage !</p>
   </Link>
 
 
-   <div className='absolute w-full h-[600px]  bottom-0  flex bg-[#000000c2] top-0' style={{backgroundSize : "100% "}}>
+   <div className='absolute w-full h-[600px]  bottom-0  flex bg-[#0000007c] top-0' style={{backgroundSize : "100% "}}>
 
       </div>
 

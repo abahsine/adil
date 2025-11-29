@@ -65,7 +65,7 @@ export default function AddressAutocomplete({
   <div className="flex-1 relative">
     <input
       name={name}
-      className="w-full text-gray-700 placeholder-gray-400 bg-transparent
+      className="w-full  text-gray-900 placeholder-gray-400 outline-none bg-transparent
                  focus:outline-none focus:ring-0 text-sm pr-8" // pr-8 pour le bouton X
       value={value}
       onChange={handleInputChange}

@@ -1,7 +1,7 @@
 import { CallToAction } from '../components/CallToAction';
 import Solutions from '../components/Solutions';
 import TextImg from '../components/TextImg';
-import Convoyeur from '/assets/about/heroAbout.jpeg'
+import Convoyeur from '/assets/backgroundVideo/backHero2.webp'
 
 export default function About (){
     return(
@@ -29,7 +29,7 @@ export default function About (){
 
 function AboutHero(){
   return(<>
-    <section className='h-[600px] flex flex-col text-white bg-[url("/assets/about/heroAbout1.jpeg")] bg-cover justify-center items-center relative'>
+    <section className='h-[600px] flex flex-col text-white bg-[url("/assets/backgroundVideo/backHero4.jpg")] bg-cover justify-center items-center relative'>
       <div className='absolute w-full h-[600px]  bottom-0  flex bg-[#000000c2] top-0' style={{backgroundSize : "100% "}}>
 
       </div>

@@ -85,7 +85,7 @@ useEffect(() => {
 
 
   return (
-    <div className="h-[600px] flex flex-col justify-center bg-[url('/assets/about/heroAbout.jpeg')] items-center align  bg-[#fff]">
+    <div className="h-[600px] flex flex-col justify-center bg-[url('/assets/contact/backContact.webp')] bg-cover items-center align ">
       {step==1 && (
         <Form1
           handleChange={handleChange}

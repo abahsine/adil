@@ -34,7 +34,7 @@ export default function Form1({ handleChange, options, data, vehicleTypes, handl
         options={vehicleTypes}
         data={data}
         setData={handleChange}
-        placeholder="Choisissez un type de véhicule"
+        placeholder="Type de véhicule"
         name="typeCar"
         label="Type de véhicule"
         error={errors.typeCar}
@@ -44,9 +44,10 @@ export default function Form1({ handleChange, options, data, vehicleTypes, handl
         <IoCarSport className="text-[#1a222e] mx-1 text-2xl " />
       </InputSearch>
 
-      <div className='flex gap-3'>
+      <div className='flex gap-3 '>
         <input
           type="checkbox"
+          className='bg-white border  w-5 border-amber-500'
           id="restitution"
           name="restitution"
           onChange={(e, actionMeta) => handleChange(e, actionMeta)}

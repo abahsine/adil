@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer ({}){
   return (
-    <footer className='bg-[#191c1b]  lg:gap-4  py-10 px-15 flex flex-col lg:flex-row lg:justify-around items-around gap-10'>
+    <footer className='bg-[#191c1b]  lg:gap-4  py-10 px-15 flex flex-col lg:flex-row lg:justify-around items-around gap-5'>
       <div className=' lg:h-full flex flex-col lg:w-2/5 text-white border-b-3 lg:border-0 gap-4'>
         <img src="/logo.png" className='lg:text-5xl lg:font-extrabold  sm:text-4xl font-bold text-4xl w-[200px]  '></img>
         <p className="roboto text-sm leading-4 ">Auto-prestige est une entreprise spécialisée dans le convoyage de véhicules de tous types. Nous assurons un transport sûr, rapide et soigné, avec un suivi personnalisé pour chaque voiture. Notre professionnalisme et notre sérieux font de nous un partenaire de confiance pour tous les automobilistes.</p>
@@ -27,13 +27,13 @@ function Footer ({}){
             <li><Link className="hover:text-amber-600" to="/about">A propos</Link></li>
             <li><Link className="hover:text-amber-600" to="/services">Services</Link></li>
             <li><Link className="hover:text-amber-600" to="/contact">Demander un devis</Link></li>
-            <li><Link className="hover:text-amber-600" to="/CGU">CGU/CGV</Link></li>
+            <li><Link className="hover:text-amber-600" to="/terms">CGU/CGV</Link></li>
 
 
         </ul>
       </div>
-        <div className='  lg:w-2/6 text-[#F0F0FF] text-lg font-medium flex flex-col items-center lg:gap-15  '>
-          <h5 className='font-bold text-3xl montserrat text-[#fcaf09] pb-3'>Nos coordonnées </h5>
+        <div className='  lg:w-2/6 text-[#F0F0FF] text-lg font-medium flex flex-col items-center lg:gap-2  '>
+          <h5 className='font-bold text-3xl montserrat text-[#fcaf09] md:pb-3 pb-8 self-start '>Nos coordonnées </h5>
       <div className="text-xl font-semibold flex flex-col gap-4   ">
           <p className="">Adresse : <span className="font-medium text-lg">113 rue marcel Hartmann, 94000 Ivry sur seine</span></p>
   <p>Téléphone : <span className="font-medium text-lg">+33 6 17 75 98 88</span></p>
