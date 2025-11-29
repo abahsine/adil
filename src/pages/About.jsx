@@ -13,7 +13,7 @@ export default function About (){
             h : "prussColor"
            }}
            title={"Notre histoire"}
-           paragraphe={"Tout a commencé avec deux jeunes passionnés d’automobile, fans de belles mécaniques et d’expériences sur la route. De fil en aiguille, on a décidé de transformer cette passion en métier. L’idée était simple : offrir un service de convoyage digne des voitures qu’on transporte. Aujourd’hui, l’équipe s’est agrandie — mais l’esprit reste le même : plaisir, précision et professionnalisme."}
+           paragraphe={"Tout a commencé avec deux jeunes passionnés de belles voitures et d’expériences sur la route. De fil en aiguille, on a décidé de transformer cette passion en métier. L’idée était simple : offrir un service de convoyage digne des voitures que l’on transporte. Aujourd’hui, l’équipe s’est agrandie — mais l’esprit reste le même : plaisir, précision et professionnalisme."}
            
            />
            <Solutions
@@ -34,7 +34,7 @@ function AboutHero(){
 
       </div>
       <div className='flex flex-col items-center gap-1 z-10'>
-        <h1 className= {`lg:text-6xl roboto lg:font-extrabold  sm:text-5xl font-semibold  text-4xl w-[90%] text-center z-2 max-w-[800px] md:text-center `}>Qui sommes-nous ?</h1>
+        <h1 className= {`lg:text-6xl roboto lg:font-extrabold  sm:text-5xl font-semibold  text-[#fcaf09] text-4xl w-[90%] text-center z-2 max-w-[800px] md:text-center `}>Qui sommes-nous ?</h1>
         <p className={`md:text-lg roboto md:font-medium text-[1rem] leading-6 italic font-light  text-center mt-6 max-w-[90%]  z-2  `}>Chez Auto-Prestige, on ne se contente pas de transporter des voitures.</p>
         <p className={`md:text-lg roboto md:font-medium text-[1rem] leading-6 italic font-light  text-center mt-2 max-w-[90%]  z-2  `}> On véhicule une passion, un savoir-faire et une vraie exigence du détail.</p>
         <p className={`md:text-lg roboto md:font-medium text-[1rem] leading-6 italic font-light  text-center mt-2 max-w-[90%]  z-2  `}> Nous accompagnons les concessionnaires et les particuliers dans la livraison, le convoyage et la mise en main de leurs véhicules — </p>

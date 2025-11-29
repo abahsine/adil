@@ -9,6 +9,7 @@ import Accueil from "./pages/Accueil";
 import Contact from "./pages/Contact";
 import useOnScreen from "./components/utils/useScreen";
 import Scroller from "./pages/BoucleInfinis";
+import TermsPage from "./pages/cgu_cgv";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms-of-page" element={<Contact />} />
         </Routes>
 
         <Footer />

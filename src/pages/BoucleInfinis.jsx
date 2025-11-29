@@ -44,8 +44,8 @@ const ImagesLogo = imageList()
 
   return (
 <div className="flex justify-center  ">
-<div class="scroller" data-speed="fast">
-  <ul class="tag-list scroller__inner">
+<div className ="scroller" data-speed="fast">
+  <ul className ="tag-list scroller__inner">
     {ImagesLogo.map((element,index)=>{
         return <li key={index}>{element}</li>
     })}

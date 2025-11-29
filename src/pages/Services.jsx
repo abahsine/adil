@@ -1,6 +1,6 @@
 import About2 from "/assets/hero/mise_en_main.jpg";
 import About1 from "/assets/services/service1.jpeg";
-import About3 from "/assets/hero/watchingCar1.jpeg";
+import About3 from "/assets/hero/watchingCar1.webp";
 
 import TitleParagraphe from "../components/componentServices/TitleParagraphe";
 import LateraleImg from "../components/componentServices/LateraleImg";
@@ -11,12 +11,12 @@ export default function Services() {
   const titles = [
     "Votre véhicule livré en toute confiance",
     "Offrez une expérience de livraison irréprochable",
-    "Faites briller votre véhicule comme jamais",
+    "Révélez tout le prestige et l’éclat de votre véhicule",
   ];
   const paragraphes = [
-    "Vous voulez que vos véhicules arrivent vite et en toute sécurité ? Notre convoyeur s’occupe de tout, en conduisant lui-même votre voiture jusqu’au client. Fini le stress, fini les galères logistiques",
+    "Vous voulez que vos véhicules arrivent rapidement et en toute sécurité ? Notre convoyeur s’occupe de tout, en conduisant lui-même votre voiture jusqu’au client. Fini le stress, fini les contraintes logistiques",
     "Avec notre service de mise en main, fini le stress et les questions ! On vous montre tout ce que votre voiture peut faire, pour que chaque trajet soit un plaisir dès le départ.",
-    "Votre voiture mérite mieux qu’un simple coup d’éponge. Avec notre service de nettoyage complet, on la remet à neuf, dedans comme dehors, pour qu’elle brille comme au premier jour.",
+    "Votre voiture mérite mieux qu’un simple coup d’éponge. Avec notre service de nettoyage complet, on la remet à neuf.",
   ];
 
   const details = [
