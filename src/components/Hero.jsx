@@ -17,7 +17,7 @@ function Hero (){
 />
 
   <Link to={"/devis"} className='w-full md:h-[50px]  py-0.5 bg-amber-400 absolute top-0 flex text-[#00305a] z-3 md:font-bold font-medium justify-center items-center hover:text-white'>
-        <p className='text-center roboto'><span className='font-bold block'>Profitez de 20% de réduction sur</span> votre premier convoyage !</p>
+        <p className='text-center roboto'><span className='font-bold block'>Profitez de 20% de réduction sur</span> votre premier convoyage en cliquant ici !</p>
   </Link>
 
 
