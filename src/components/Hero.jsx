@@ -16,7 +16,7 @@ function Hero (){
 
 />
 
-  <Link to={"/contact"} className='w-full md:h-[50px]  py-0.5 bg-amber-400 absolute top-0 flex text-[#00305a] z-3 md:font-bold font-medium justify-center items-center hover:text-white'>
+  <Link to={"/devis"} className='w-full md:h-[50px]  py-0.5 bg-amber-400 absolute top-0 flex text-[#00305a] z-3 md:font-bold font-medium justify-center items-center hover:text-white'>
         <p className='text-center roboto'><span className='font-bold block'>Profitez de 20% de réduction sur</span> votre premier convoyage !</p>
   </Link>
 
@@ -31,8 +31,8 @@ function Hero (){
         <p className={'md:text-lg railway md:font-medium text-[1rem] leading-5 italic font-light text-center max-w-[90%]  z-2 fade-up ' + `${isVisible? "visible" : ""}`}>avec des solutions rapides, fiables et adaptées à chaque besoin.</p>
         <p className={'md:text-lg railway md:font-medium text-[1rem] leading-5 py-5 font-semibold text-center mb-9 max-w-[90%]  z-2 fade-up ' + `${isVisible? "visible" : ""}`  } ref={ref}>Obtenez dès maintenant une estimation gratuite pour votre convoyage.</p>
 
-        <div className=' flex justify-center'>
-          <CallToAction content='Estimation gratuite' color={"bg-white prussColor px-8 animate-bounce hover:animate-none"} />
+        <div className=' flex justify-center prussColor px-8 animate-bounce '>
+          <CallToAction content='Estimation gratuite' color={"bg-white prussColor"} />
           </div>
 
       </div>

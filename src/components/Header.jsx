@@ -23,7 +23,7 @@ function Header(){
       lien : "/galerie",
     },
       {label : "Nous Contacter",
-      lien : "Contact",
+      lien : "contact",
     },
   ]
  
