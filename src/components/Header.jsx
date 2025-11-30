@@ -18,11 +18,12 @@ function Header(){
      {label : "A propos" ,
       lien : "about",
     },
-     {label : "Nous Contacter",
-      lien : "contact",
+   
+     {label : "Galerie",
+      lien : "/galerie",
     },
-     {label : "Gallerie",
-      lien : "/a",
+      {label : "Nous Contacter",
+      lien : "Contact",
     },
   ]
  

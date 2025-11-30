@@ -54,3 +54,12 @@ body {
 .backYellow{
   background-color: #fdf125;
 }
+
+@keyframes slideUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.35s ease-out forwards;
+}

@@ -2,17 +2,14 @@ import "../App.css"
 
 import { useEffect } from "react";
 
-const images = import.meta.glob('/src/assets/logos/*.png', { eager: true });
+const images = import.meta.glob('/public/assets/logos/*.png', { eager: true });
 const imageList = () => {
   const listes = []
      Object.values(images).map((img, i) => (
         listes.push(<img key={i} src={img.default} className='w-[200px] lg:w-[300px]' alt={`img-${i}`} />)  
       ))
   return listes
-
-  
 };
-
 
 export default function Scroller() {
 
@@ -52,12 +49,6 @@ const ImagesLogo = imageList()
   </ul>
 </div>
 
-
-
-
- 
 </div>
-
-   
   );
 }

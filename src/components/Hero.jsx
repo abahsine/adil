@@ -32,7 +32,7 @@ function Hero (){
         <p className={'md:text-lg railway md:font-medium text-[1rem] leading-5 py-5 font-semibold text-center mb-9 max-w-[90%]  z-2 fade-up ' + `${isVisible? "visible" : ""}`  } ref={ref}>Obtenez dès maintenant une estimation gratuite pour votre convoyage.</p>
 
         <div className=' flex justify-center'>
-          <CallToAction color={"bg-white prussColor px-8 animate-bounce hover:animate-none"} />
+          <CallToAction content='Estimation gratuite' color={"bg-white prussColor px-8 animate-bounce hover:animate-none"} />
           </div>
 
       </div>
