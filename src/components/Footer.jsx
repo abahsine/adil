@@ -26,7 +26,7 @@ function Footer ({}){
             <li><Link className="hover:text-amber-600" to="/contact">Contact</Link></li>
             <li><Link className="hover:text-amber-600" to="/about">A propos</Link></li>
             <li><Link className="hover:text-amber-600" to="/services">Services</Link></li>
-            <li><Link className="hover:text-amber-600" to="/contact">Demander un devis</Link></li>
+            <li><Link className="hover:text-amber-600" to="/Devis">Demander un devis</Link></li>
             <li><Link className="hover:text-amber-600" to="/terms">CGU/CGV</Link></li>
 
 

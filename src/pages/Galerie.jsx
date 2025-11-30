@@ -1,41 +1,47 @@
 import React from "react";
 import { useState } from "react";
 export default function Galerie() {
-  // Liste d'images (tu remplaces par tes vraies URLs)
- const arriveeVilles = [
-  // Belgique
-  "Bruxelles",
-  "Anvers",
-  "Gand",
-  "Liège",
-  "Bruges",
-
-  // Espagne
-  "Madrid",
-  "Barcelone",
-  "Valence",
-  "Séville",
-  "Bilbao",
-
-  // France (différentes de la liste départ)
-  "Caen",
-  "Brest",
-  "Genève",
-  "Toulon",
-  "Besançon",
-  "Limoges",
-  "Bâle",
-  "Mulhouse",
-  "Amiens",
-  "Troyes"
-];
 const departVilles = [
+  // France
   "Paris", "Lyon", "Marseille", "Toulouse", "Bordeaux",
   "Nice", "Nantes", "Strasbourg", "Montpellier", "Lille",
   "Grenoble", "Dijon", "Rennes", "Le Havre", "Reims",
-  "Clermont-Ferrand", "Nancy", "Metz", "Perpignan", "Poitiers"
+  "Clermont-Ferrand", "Nancy", "Metz", "Perpignan", "Poitiers",
+  "Orléans", "Tours", "Aix-en-Provence", "La Rochelle", "Avignon",
+  
+  // Belgique
+  "Namur", "Charleroi",
+
+  // Espagne
+  "Zaragoza", "Murcia",
+
+  // Allemagne
+  "Munich", "Hambourg", "Hanovre", "Francfort",
+
+  // Suisse
+  "Lausanne", "Lugano"
 ];
- const images = import.meta.glob('/public/assets/galerie/*.jpeg', { eager: true });
+const arriveeVilles = [
+  // Belgique
+  "Bruxelles", "Anvers", "Gand", "Liège", "Bruges", "Leuven",
+
+  // Espagne
+  "Madrid", "Barcelone", "Valence", "Séville", "Bilbao",
+  "Málaga", "Salamanque",
+
+  // France (aucune présente dans departVilles)
+  "Caen", "Brest", "Roma", "Besançon", "Limoges",
+  "Mulhouse", "Amiens", "Troyes", "Besançon", "Chambéry",
+  "Milan", "Colmar", "Besançon", "Ajaccio",
+
+  // Allemagne
+  "Berlin", "Düsseldorf", "Stuttgart", "Leipzig", "Dresde",
+
+  // Suisse
+  "Genève", "Bâle", "Zurich", "Saint-Gall"
+];
+
+ const images = import.meta.glob('/public/assets/galerie/*.webp', { eager: true });
 const imageList = () => {
   const listes = []
      Object.values(images).map((img, i) => (
