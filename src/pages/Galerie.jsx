@@ -80,7 +80,7 @@ const imageList = () => {
 
           <div
             key={index}
-            className="relative group overflow-hidden rounded-lg shadow-md relative"
+            className="e overflow-hidden rounded-lg shadow-md relative"
           >
             
            {img}
