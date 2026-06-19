@@ -1,17 +1,11 @@
 import emailjs from "@emailjs/browser";
 
-const sendEmail = (data) => {  // <-- plus de {data}
-  emailjs.send(
+const sendEmail = (data) => {
+  return emailjs.send(
     "service_jpni1et",
     "template_68uq80s",
-    data,  // <-- passe directement l'objet JSON
+    data,
     "D1rSO1XNtilJuXbjv"
-  )
-  .then((result) => {
-    return true
-    
-  }, (error) => {
-    return false
-  });
+  );
 };
 export default sendEmail;

@@ -4,7 +4,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Bebas+Neue&display=swap');
+
 @tailwind utilities;
+
+@theme {
+  --color-bg: #0A0A0A;
+  --color-bg-darker: #050505;
+  --color-surface: #111111;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E0C77A;
+  --color-offwhite: #F5F5F0;
+  --color-border-gold: rgba(201, 168, 76, 0.2);
+  --color-border-gold-strong: rgba(201, 168, 76, 0.4);
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", "DM Sans", sans-serif;
+  --font-numeric: "Bebas Neue", sans-serif;
+}
 
 
 .prussColor {

@@ -53,19 +53,19 @@ export default function AddressAutocomplete({
 
   return (
     <div className="relative w-full">
-      <label htmlFor={name} className="block mb-1 text-md font-medium text-gray-700">
+      <label htmlFor={name} className="block mb-1 text-md font-medium text-offwhite/80">
         {label}
       </label>
 
       {/* INPUT + ICON */}
-    <div className="border border-[#ccc] flex items-center gap-3 py-2 px-2 rounded-md bg-white relative">
+    <div className="border border-border-gold flex items-center gap-3 py-2 px-2 rounded-md bg-surface relative">
   {children}
 
   {/* INPUT QUI PREND TOUT L'ESPACE */}
   <div className="flex-1 relative">
     <input
       name={name}
-      className="w-full  text-gray-900 placeholder-gray-400 outline-none bg-transparent
+      className="w-full  text-offwhite placeholder-offwhite/40 outline-none bg-transparent
                  focus:outline-none focus:ring-0 text-sm pr-8" // pr-8 pour le bouton X
       value={value}
       onChange={handleInputChange}
@@ -90,7 +90,7 @@ export default function AddressAutocomplete({
             },
           });
         }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+        className="absolute right-2 top-1/2 -translate-y-1/2 text-offwhite/40 hover:text-offwhite"
       >
         ✕
       </button>
@@ -101,22 +101,22 @@ export default function AddressAutocomplete({
 
       {/* LISTE DES SUGGESTIONS */}
       {status === "OK" && (
-        <ul className="mt-1 bg-white border rounded-md shadow-md overflow-hidden z-50 absolute w-full">
+        <ul className="mt-1 bg-surface border border-border-gold rounded-md shadow-md overflow-hidden z-50 absolute w-full">
           {data.map(({ place_id, description }) => (
             <li
               key={place_id}
               className="flex items-center gap-2 px-3 py-2 cursor-pointer
-                         hover:bg-gray-100 transition-colors border-b last:border-none"
+                         hover:bg-white/5 transition-colors border-b border-border-gold last:border-none"
               onClick={() => handleSelect(description)}
             >
-              <div className="text-gray-500">{children}</div>
-              <span className="text-gray-700">{description}</span>
+              <div className="text-offwhite/50">{children}</div>
+              <span className="text-offwhite/80">{description}</span>
             </li>
           ))}
         </ul>
       )}
 
-      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+      {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
     </div>
   );
 }

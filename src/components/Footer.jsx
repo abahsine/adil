@@ -1,5 +1,5 @@
 // Footer.tsx
-import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 
@@ -12,12 +12,11 @@ function Footer ({}){
          <div className='flex flex-col'>
           <h5 className='font-semibold text-xl montserrat gap-5 '>Suivez nous sur:</h5>
           <div className='text-white text-3xl flex gap-5 py-2 pb-10 lg:pb-2'>
-            <FaFacebook/>
-            <FaInstagram/>
-            <FaTiktok/>
-            <FaLinkedin/>
+            <a href="https://www.facebook.com/share/1EiVgt54V6/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook/></a>
+            <a href="https://www.instagram.com/auto_prestige94?igsh=eWVwYWd5bHlxaGV5&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram/></a>
+            <a href="https://www.tiktok.com/@adilchejri?_r=1&_t=ZN-97LHd42jlrC" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok/></a>
           </div>
-          </div> 
+          </div>
       </div>
       <div className='  lg:w-1/5 text-[#F0F0FF] text-lg font-medium border-b-3 lg:border-0'>
           <h5 className='font-bold text-3xl roboto text-[#fcaf09] pb-3'>Liens utiles</h5>
@@ -36,9 +35,9 @@ function Footer ({}){
           <h5 className='font-bold text-3xl montserrat text-[#fcaf09] md:pb-3 pb-8 self-start '>Nos coordonnées </h5>
       <div className="text-lg font-medium flex flex-col gap-4 roboto  ">
           <p className="">Adresse : <span className="font-extralight text-md">113 rue marcel Hartmann, 94000 Ivry sur seine</span></p>
-  <p>Téléphone : <span className="font-extralight text-md">+33 6 17 75 98 88</span></p>
-  <p>Email : <span className="font-extralight text-md">ad.94auto@gmail.com</span></p>
-        
+  <p>Téléphone : <span className="font-extralight text-md">+33 6 17 75 98 88 / +33 6 59 42 79 55</span></p>
+  <p>Email : <span className="font-extralight text-md">contact@auto-prestigee.com</span></p>
+
       </div>
       </div>
     </footer>
