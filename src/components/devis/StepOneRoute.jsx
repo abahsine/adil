@@ -149,7 +149,9 @@ export default function StepOneRoute({
             </p>
             {pricing.total != null && pricing.range.min != null && (
               <p className="font-numeric text-gold text-2xl">
-                Estimation : entre {animatedMin}€ et {animatedMax}€
+                {pricing.range.min === pricing.range.max
+                  ? <>Estimation : {animatedMin}€</>
+                  : <>Estimation : entre {animatedMin}€ et {animatedMax}€</>}
               </p>
             )}
             {pricing.usingDefaultVehicle && (
