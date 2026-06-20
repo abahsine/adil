@@ -1,6 +1,19 @@
-export const PER_KM_MIN = 0.75;
-export const PER_KM_MAX = 0.90;
+// ---------------------------------------------------------------------------
+// FICHIER UNIQUE DE TARIFICATION — toutes les valeurs (€/km, options, etc.)
+// utilisées pour calculer un devis se trouvent dans ce fichier.
+// ---------------------------------------------------------------------------
+
+// Adresse du siège : point de départ/retour du convoyeur (déplacement en train)
+export const COMPANY_ADDRESS = "113 rue Marcel Hartmann, 94000 Ivry-sur-Seine";
+
+// Tarif au km pour le trajet du véhicule convoyé
+export const PER_KM_MIN = 0.70;
+export const PER_KM_MAX = 0.85;
 export const DIESEL_SURCHARGE = 0.03; // +3% pour les catégories majoritairement diesel (consommation plus élevée)
+export const DEFAULT_VEHICLE_KEY = "Citadine"; // tarif de base utilisé quand aucun véhicule n'est encore sélectionné
+
+// Tarif au km pour le déplacement du convoyeur en train (siège -> ville de départ, puis ville d'arrivée -> siège)
+export const POSITIONING_RATE_PER_KM = 0.20;
 
 export const VEHICLE_PRICING = {
   Citadine: { label: "Citadine", diesel: false },
@@ -38,6 +51,14 @@ export function computeBasePrice(vehicleTypeKey, distanceKm) {
   return distanceKm * avgPerKm * dieselMultiplier(vehicleTypeKey);
 }
 
+// Frais de déplacement du convoyeur (en train) : siège -> ville de départ + ville d'arrivée -> siège.
+// En cas de restitution (aller + retour), on ne compte que la ville de départ du 1er trajet
+// et la ville d'arrivée du 2e trajet, jamais les deux trajets séparément.
+export function computePositioningCost(positioningKm) {
+  if (!Number.isFinite(positioningKm)) return 0;
+  return positioningKm * POSITIONING_RATE_PER_KM;
+}
+
 export function computeOptionsTotal(basePrice, selectedOptionKeys = []) {
   if (!Number.isFinite(basePrice)) return 0;
   let flatTotal = 0;
@@ -51,23 +72,31 @@ export function computeOptionsTotal(basePrice, selectedOptionKeys = []) {
   return flatTotal + percentTotal;
 }
 
-export function computeRange(vehicleTypeKey, distanceKm) {
+export function computeRange(vehicleTypeKey, distanceKm, positioningKm = 0) {
   if (!VEHICLE_PRICING[vehicleTypeKey] || !Number.isFinite(distanceKm)) {
     return { min: null, max: null };
   }
   const multiplier = dieselMultiplier(vehicleTypeKey);
+  const positioningCost = computePositioningCost(positioningKm);
   return {
-    min: Math.round(distanceKm * PER_KM_MIN * multiplier),
-    max: Math.round(distanceKm * PER_KM_MAX * multiplier),
+    min: Math.round(distanceKm * PER_KM_MIN * multiplier + positioningCost),
+    max: Math.round(distanceKm * PER_KM_MAX * multiplier + positioningCost),
   };
 }
 
-export function computeQuote({ vehicleTypeKey, distanceKm, selectedOptionKeys = [] }) {
+export function computeQuote({ vehicleTypeKey, distanceKm, positioningKm = 0, selectedOptionKeys = [] }) {
   const base = computeBasePrice(vehicleTypeKey, distanceKm);
   if (base === null) {
-    return { base: null, optionsTotal: 0, total: null, range: { min: null, max: null } };
+    return { base: null, positioningCost: 0, optionsTotal: 0, total: null, range: { min: null, max: null } };
   }
+  const positioningCost = computePositioningCost(positioningKm);
   const optionsTotal = computeOptionsTotal(base, selectedOptionKeys);
-  const total = Math.round(base + optionsTotal);
-  return { base: Math.round(base), optionsTotal: Math.round(optionsTotal), total, range: computeRange(vehicleTypeKey, distanceKm) };
+  const total = Math.round(base + positioningCost + optionsTotal);
+  return {
+    base: Math.round(base),
+    positioningCost: Math.round(positioningCost),
+    optionsTotal: Math.round(optionsTotal),
+    total,
+    range: computeRange(vehicleTypeKey, distanceKm, positioningKm),
+  };
 }

@@ -3,9 +3,23 @@ import AddressAutocomplete from "../contact/googleApi";
 import VehicleTypeCards from "./VehicleTypeCards";
 import MapPanel from "./MapPanel";
 import useCountUp from "../../hooks/useCountUp";
+import useRouteDistance from "../../hooks/useRouteDistance";
 
-export default function StepOneRoute({ route, vehicleTypeKey, pricing, onRouteChange, onVehicleChange, onNext, errors }) {
+export default function StepOneRoute({
+  route,
+  restitution,
+  returnRoute,
+  vehicleTypeKey,
+  pricing,
+  onRouteChange,
+  onReturnRouteChange,
+  onToggleRestitution,
+  onVehicleChange,
+  onNext,
+  errors,
+}) {
   const handleAddressChange = (e) => onRouteChange({ [e.target.name]: e.target.value });
+  const handleReturnAddressChange = (e) => onReturnRouteChange({ [e.target.name]: e.target.value });
 
   const handleRouteComputed = (result) => {
     if (result.error) {
@@ -15,13 +29,36 @@ export default function StepOneRoute({ route, vehicleTypeKey, pricing, onRouteCh
     }
   };
 
+  const handleReturnRouteComputed = (result) => {
+    if (result.error) {
+      onReturnRouteChange({ distanceKm: null, durationMin: null, error: result.error });
+    } else {
+      onReturnRouteChange({ distanceKm: result.distanceKm, durationMin: result.durationMin, error: "" });
+    }
+  };
+
+  // Trajet retour : calcule uniquement la distance, sans afficher de 2e carte (une seule carte visible au total)
+  useRouteDistance(restitution ? returnRoute.depart : "", restitution ? returnRoute.arrive : "", handleReturnRouteComputed);
+
   const animatedMin = useCountUp(pricing.range.min || 0, pricing.range.min != null);
   const animatedMax = useCountUp(pricing.range.max || 0, pricing.range.max != null);
-  const canContinue = route.depart && route.arrive && vehicleTypeKey && pricing.total;
+  const totalDistanceKm = restitution
+    ? (route.distanceKm ?? null) != null && (returnRoute.distanceKm ?? null) != null
+      ? route.distanceKm + returnRoute.distanceKm
+      : null
+    : route.distanceKm;
+  const canContinue = Boolean(
+    route.depart &&
+      route.arrive &&
+      (restitution || vehicleTypeKey) &&
+      pricing.total &&
+      (!restitution || (returnRoute.depart && returnRoute.arrive && returnRoute.distanceKm != null))
+  );
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl mx-auto px-4 lg:h-[600px]">
-      <div className="flex-1 h-[300px] lg:h-full rounded-2xl overflow-hidden border border-border-gold order-2 lg:order-1">
+    <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl mx-auto px-4">
+      {/* Carte masquée sur téléphone ; une seule carte (trajet aller) visible sur tablette/ordinateur */}
+      <div className="hidden md:block flex-1 h-[300px] lg:h-[600px] rounded-2xl overflow-hidden border border-border-gold order-2 lg:order-1">
         <MapPanel depart={route.depart} arrive={route.arrive} onRouteComputed={handleRouteComputed} />
       </div>
 
@@ -50,18 +87,74 @@ export default function StepOneRoute({ route, vehicleTypeKey, pricing, onRouteCh
 
         {route.error && <p className="text-red-400 text-sm">{route.error}</p>}
 
-        {route.distanceKm != null && (
+        <label className="flex items-center gap-3 bg-surface border border-border-gold rounded-xl px-3 py-2.5 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={!!restitution}
+            onChange={onToggleRestitution}
+            className="w-4 h-4 accent-[#C9A84C]"
+          />
+          <span className="text-offwhite/80 text-sm">Restitution (trajet retour)</span>
+        </label>
+
+        {restitution && (
+          <div className="flex flex-col gap-4 border border-border-gold rounded-xl p-4">
+            <p className="text-sm font-medium text-gold">Trajet retour (restitution)</p>
+
+            <AddressAutocomplete
+              name="depart"
+              label="Adresse de départ (retour)"
+              placeholder="Adresse de départ"
+              value={returnRoute.depart}
+              onChange={handleReturnAddressChange}
+              error={errors?.returnDepart}
+            >
+              <IoLocationSharp className="text-gold mx-1 text-2xl" />
+            </AddressAutocomplete>
+
+            <AddressAutocomplete
+              name="arrive"
+              label="Adresse d'arrivée (retour)"
+              placeholder="Adresse d'arrivée"
+              value={returnRoute.arrive}
+              onChange={handleReturnAddressChange}
+              error={errors?.returnArrive}
+            >
+              <IoLocationSharp className="text-red-400 mx-1 text-2xl" />
+            </AddressAutocomplete>
+
+            {returnRoute.error && <p className="text-red-400 text-sm">{returnRoute.error}</p>}
+
+            {returnRoute.distanceKm != null && (
+              <p className="font-body text-offwhite/70 text-sm">
+                Distance retour : <span className="text-gold font-semibold">{Math.round(returnRoute.distanceKm)} km</span>
+              </p>
+            )}
+          </div>
+        )}
+
+        {totalDistanceKm != null && (
           <div className="bg-surface border border-border-gold rounded-xl p-4 flex flex-col gap-1">
             <p className="font-body text-offwhite/70 text-sm">
-              Distance : <span className="text-gold font-semibold">{Math.round(route.distanceKm)} km</span>
-              {" — "}Durée estimée :{" "}
-              <span className="text-gold font-semibold">
-                {Math.floor(route.durationMin / 60)}h{String(route.durationMin % 60).padStart(2, "0")}
-              </span>
+              Distance{restitution ? " totale" : ""} :{" "}
+              <span className="text-gold font-semibold">{Math.round(totalDistanceKm)} km</span>
+              {!restitution && (
+                <>
+                  {" — "}Durée estimée :{" "}
+                  <span className="text-gold font-semibold">
+                    {Math.floor(route.durationMin / 60)}h{String(route.durationMin % 60).padStart(2, "0")}
+                  </span>
+                </>
+              )}
             </p>
             {pricing.total != null && pricing.range.min != null && (
               <p className="font-numeric text-gold text-2xl">
                 Estimation : entre {animatedMin}€ et {animatedMax}€
+              </p>
+            )}
+            {pricing.usingDefaultVehicle && (
+              <p className="text-xs text-offwhite/50 italic">
+                Tarif de base appliqué pour la restitution (calcul basé sur tarif citadine)
               </p>
             )}
           </div>

@@ -2,7 +2,6 @@
 import { CallToAction } from './CallToAction';
 import useOnScreen from './utils/useScreen';
 import "./css/components.css"
-import { Link } from 'react-router-dom';
 function Hero (){
   const [ref,isVisible] = useOnScreen({
     threshold : 0.5
@@ -15,11 +14,6 @@ function Hero (){
   src="/assets/backgroundVideo/backHero.jpg"
 
 />
-
-  <Link to={"/devis"} className='w-full md:h-[50px]  py-0.5 bg-amber-400 absolute top-0 flex text-[#00305a] z-3 md:font-bold font-medium justify-center items-center hover:text-white'>
-        <p className='text-center roboto'><span className='font-bold block'>Profitez de 20% de réduction sur</span> votre premier convoyage en cliquant ici !</p>
-  </Link>
-
 
    <div className='absolute w-full h-[600px]  bottom-0  flex bg-[#0000007c] top-0' style={{backgroundSize : "100% "}}>
 

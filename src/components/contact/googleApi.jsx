@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import usePlacesAutocomplete from "use-places-autocomplete";
 
 export default function AddressAutocomplete({
   label = "Adresse de départ",
   placeholder = "Adresse de départ",
   name,
+  value: externalValue, // <- permet un pré-remplissage contrôlé depuis le parent (ex: trajet retour)
   onChange,        // <- handleChange vient de Contact
   children,
   error
@@ -16,6 +17,14 @@ export default function AddressAutocomplete({
     setValue,
     clearSuggestions
   } = usePlacesAutocomplete();
+
+  // Reflète une valeur fixée par le parent (ex: pré-remplissage auto du trajet retour)
+  // sans écraser ce que l'utilisateur est en train de taper lui-même.
+  useEffect(() => {
+    if (externalValue !== undefined && externalValue !== value) {
+      setValue(externalValue, false);
+    }
+  }, [externalValue]);
 
   // -------------------------------
   // À chaque frappe de l’utilisateur
